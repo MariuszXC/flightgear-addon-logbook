@@ -73,4 +73,18 @@ var Settings = {
     setDarkMode: func(value) {
         setprop(me.propToSave ~ "/settings/dark-style", value);
     },
+
+    #
+    # return bool
+    #
+    isLogPaused: func() {
+        getprop(me.propToSave ~ "/settings/log-paused") or false;
+    },
+
+    #
+    # bool value
+    #
+    setLogPaused: func(value) {
+        setprop(me.propToSave ~ "/settings/log-paused", value);
+    },
 };

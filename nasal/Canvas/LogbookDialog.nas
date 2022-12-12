@@ -87,6 +87,7 @@ var LogbookDialog = {
 
         me.labelPaging = canvas.gui.widgets.Label.new(me.group, canvas.style, {});
         me.btnStyle    = canvas.gui.widgets.Button.new(me.group, canvas.style, {});
+        me.btnPause    = canvas.gui.widgets.Button.new(me.group, canvas.style, {});
         me.drawBottomBar();
 
         return me;
@@ -283,6 +284,11 @@ var LogbookDialog = {
             .setFixedSize(75, 26)
             .listen("clicked", func { me.toggleStyle(); });
 
+        me.btnPause
+            .setText("Pause")
+            .setFixedSize(75, 26)
+            .listen("clicked", func { print("PAUSE clicked"); });
+
         var btnHelp = canvas.gui.widgets.Button.new(me.group, canvas.style, {})
             .setText("?")
             .setFixedSize(26, 26)
@@ -298,6 +304,7 @@ var LogbookDialog = {
         buttonBox.addItem(btnLast);
         buttonBox.addStretch(2);
         buttonBox.addItem(me.btnStyle);
+        buttonBox.addItem(me.btnPause);
         buttonBox.addItem(btnHelp);
         buttonBox.addStretch(1);
 

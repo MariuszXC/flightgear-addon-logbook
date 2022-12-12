@@ -20,6 +20,7 @@
                     <save>
                         <settings>
                             <dark-style type="bool">0</dark-style>
+                            <log-paused type="bool">0</log-paused>
                         </settings>
                     </save>
                     <help-text type="string">

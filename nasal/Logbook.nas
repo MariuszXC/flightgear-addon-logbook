@@ -55,6 +55,9 @@ var Logbook = {
         me.isInitialized = false;
         me.fdmInit = me.fdmInitialized();
 
+        me.settings = Settings.new();
+
+
         setlistener("/sim/freeze/master", func(node) {
             me.isSimPaused = node.getValue();
             # logprint(MY_LOG_LEVEL, "Logbook Add-on - isSimPaused = ", me.isSimPaused);
@@ -274,7 +277,11 @@ var Logbook = {
             me.logData.setCrash();
         }
 
-        me.file.saveData(me.logData);
+        if (me.settings.isLogPaused() == false) {
+            me.file.saveData(me.logData);
+        } else {
+            print("Not writing to logbook - logging paused");
+        }
         me.logData = nil;
         me.wowSec = 0;
     },
